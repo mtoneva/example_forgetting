@@ -85,7 +85,9 @@ python order_examples_by_forgetting.py
 
 ##### Removing examples from training set
 
-<div style="text-align:center"><img src="https://github.com/mtoneva/forgetting_temp/blob/master/figures/Fig5_nocaption.png" alt="Distributions of forgetting counts" width="800"></div>
+<p align="center">
+  <img width="800" src="https://github.com/mtoneva/forgetting_temp/blob/master/figures/Fig5_nocaption.png">
+</p>
 
 The removal experiments specify a number of examples to be completely removed from the sorted training set. We achieve this by providing three extra flags to `run_mnist.py` and `run_cifar.py`: `--sorting_file`, which is the name of the file output by `order_examples_by_forgetting.py` that specifies the sorting of the examples based on forgetting counts, `--remove_n`, which specifies the number of examples to remove, and `--keep_lowest_n`, which specifies where in the list of sorted training examples the removal should begin. We found that near state-of-the-art generalization performance can be maintained even when all unforgettable examples (i.e. examples with 0 forgetting events) are removed. 
 
