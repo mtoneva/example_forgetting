@@ -16,6 +16,8 @@ Bibtex:
 
 ![Distributions of forgetting counts](https://github.com/mtoneva/forgetting_temp/blob/master/figures/Fig1.png?raw=True)
 
+<img src="https://github.com/mtoneva/forgetting_temp/blob/master/figures/Fig1.png" alt="Distributions of forgetting counts" width="100">
+
 Our approach consists of two main steps:
 1. Train on full training set to collect statistics (loss, accuracy, misclassification margin) after each presentation of every example.
 2. Given these presentation statistics, compute number of forgetting events per example and sort examples by forgetting counts. A forgetting event is defined as a transition in the training accuracy of an example from 1 to 0 on two consecutive presentations. Note that a missclassification is not necessarily a forgetting event.
