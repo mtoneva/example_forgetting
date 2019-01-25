@@ -14,7 +14,7 @@ Bibtex:
 
 ## Computing Forgetting Counts
 
-![Distributions of forgetting counts](https://github.com/mtoneva/forgetting_temp/blob/master/figures/Fig1.png?raw=true "Distributions of forgetting counts")
+![Distributions of forgetting counts](https://github.com/mtoneva/forgetting_temp/blob/master/figures/Fig1.png?raw=true "Distributions of forgetting counts" | width=100)
 
 Our approach consists of two main steps:
 1. Train on full training set to collect statistics (loss, accuracy, misclassification margin) after each presentation of every example.
