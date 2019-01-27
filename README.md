@@ -126,7 +126,16 @@ Cutout implementation from [https://github.com/uoguelph-mlrg/Cutout] (https://gi
 For Fig6:
 CIFAR-10: same results as from Fig5 Left
 MNIST/permuted MNIST: 
-python run_mnist.py --dataset mnist/permuted_mnist --sorting-file {mnist/permuted_mnist}_sorted_examples_by_forgetting --input_dir mnist_results/permuted_mnist_results --output_dir mnist_results/permuted_mnist_results  --seed s --remove_n r --keep_lowest_n k
+```
+python run_mnist.py 
+    --dataset mnist/permuted_mnist 
+    --sorting-file {mnist/permuted_mnist}_sorted_examples_by_forgetting 
+    --input_dir mnist_results/permuted_mnist_results 
+    --output_dir mnist_results/permuted_mnist_results  
+    --seed s 
+    --remove_n r 
+    --keep_lowest_n k
+```
 , where s is in range(1,6)
 r is in range(0,60000,1000)
 k is 0 (for selected) and -1 (for random)
@@ -134,17 +143,38 @@ k is 0 (for selected) and -1 (for random)
 
 ##### Adding label noise during training
 
+<p align="center">
+  <img width="500" src="https://github.com/mtoneva/forgetting_temp/blob/master/figures/Fig3.png">
+</p>
+
 We also investigate how adding noise to the example labels affects forgetting. We introduce label noise by assigning random labels to a specified percentage of the training set.
 
 To replicate results in Fig3:
-python run_cifar.py --dataset cifar10 --data_augmentation --output_dir cifar10_results --noise_percent_labels 20
+```
+python run_cifar.py 
+    --dataset cifar10 
+    --data_augmentation 
+    --output_dir cifar10_results 
+    --noise_percent_labels 20
+```
 
 ##### Adding pixel noise during training
+
+<p align="center">
+  <img width="500" src="https://github.com/mtoneva/forgetting_temp/blob/master/figures/Fig11.png">
+</p>
 
 In the supplementary, we further investigate how introducing additive Gaussian noise to the example pixels affects forgetting.
 
 To replicate results in Supplementary Fig11:
-python run_cifar.py --dataset cifar10 --data_augmentation --output_dir cifar10_results --noise_percent_pixels 100 --noise_std_pixels n
+```
+python run_cifar.py 
+    --dataset cifar10 
+    --data_augmentation 
+    --output_dir cifar10_results 
+    --noise_percent_pixels 100 
+    --noise_std_pixels n
+```
 , where n is in \[0.5,1,2,10\]
 
 
