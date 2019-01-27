@@ -83,7 +83,7 @@ python order_examples_by_forgetting.py
 
 ## Experiments
 
-##### Removing examples from training set
+#### Removing examples from training set
 
 <p align="center">
   <img width="800" src="https://github.com/mtoneva/forgetting_temp/blob/master/figures/Fig5_nocaption.png">
@@ -141,7 +141,7 @@ r is in range(0,60000,1000)
 k is 0 (for selected) and -1 (for random)
 
 
-##### Adding label noise during training
+#### Adding label noise during training
 
 We also investigate how adding noise to the example labels affects forgetting. We introduce label noise by assigning random labels to a specified percentage of the training set.
 
@@ -154,7 +154,7 @@ python run_cifar.py
     --noise_percent_labels 20
 ```
 
-##### Adding pixel noise during training
+#### Adding pixel noise during training
 
 In the supplementary, we further investigate how introducing additive Gaussian noise to the example pixels affects forgetting.
 
