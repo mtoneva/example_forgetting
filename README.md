@@ -143,10 +143,6 @@ k is 0 (for selected) and -1 (for random)
 
 ##### Adding label noise during training
 
-<p align="center">
-  <img width="500" src="https://github.com/mtoneva/forgetting_temp/blob/master/figures/Fig3.png">
-</p>
-
 We also investigate how adding noise to the example labels affects forgetting. We introduce label noise by assigning random labels to a specified percentage of the training set.
 
 To replicate results in Fig3:
@@ -159,10 +155,6 @@ python run_cifar.py
 ```
 
 ##### Adding pixel noise during training
-
-<p align="center">
-  <img width="500" src="https://github.com/mtoneva/forgetting_temp/blob/master/figures/Fig11.png">
-</p>
 
 In the supplementary, we further investigate how introducing additive Gaussian noise to the example pixels affects forgetting.
 
