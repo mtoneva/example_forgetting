@@ -22,7 +22,7 @@ Our approach consists of two main steps:
 1. Train on full training set to collect statistics (loss, accuracy, misclassification margin) after each presentation of every example.
 2. Given these presentation statistics, compute number of forgetting events per example and sort examples by forgetting counts. A forgetting event is defined as a transition in the training accuracy of an example from 1 to 0 on two consecutive presentations. Note that a missclassification is not necessarily a forgetting event.
 
-We present results on MNIST and CIFAR. Below we provide an overview of the supplied code and commands to reproduce our results. 
+We present results on MNIST and CIFAR. Below we provide an overview of the supplied code and commands to reproduce our results for both steps.
 
 ##### MNIST and permuted MNIST:
 
