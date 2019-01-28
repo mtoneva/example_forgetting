@@ -123,9 +123,6 @@ python run_cifar.py
 Cutout implementation from [https://github.com/uoguelph-mlrg/Cutout] (https://github.com/uoguelph-mlrg/Cutout)
 
 For Figure 6 results:
-
-CIFAR-10: same results as from Figure 5 Left
-MNIST/permuted MNIST: 
 ```
 python run_mnist.py 
     --dataset mnist/permuted_mnist 
@@ -136,16 +133,13 @@ python run_mnist.py
     --remove_n r 
     --keep_lowest_n k
 ```
-, where s is in `range(1,6)`
-r is in `range(0,60000,1000)`
-k is 0 (for selected) and -1 (for random)
-
+, where s is in `range(1,6)`, r is in `range(0,60000,1000)`, and k is 0 (for selected) and -1 (for random). The results for CIFAR-10 in this figure are the same results as those from Figure 5 Left. 
 
 #### Adding label noise during training
 
 We also investigate how adding noise to the example labels affects forgetting. We introduce label noise by assigning random labels to a specified percentage of the training set.
 
-To replicate results in Fig3:
+For Figure 3 results:
 ```
 python run_cifar.py 
     --dataset cifar10 
@@ -158,7 +152,7 @@ python run_cifar.py
 
 In the supplementary, we further investigate how introducing additive Gaussian noise to the example pixels affects forgetting.
 
-To replicate results in Supplementary Fig11:
+For Supplementary Figure 11 results:
 ```
 python run_cifar.py 
     --dataset cifar10 
@@ -167,7 +161,7 @@ python run_cifar.py
     --noise_percent_pixels 100 
     --noise_std_pixels n
 ```
-, where n is in \[0.5,1,2,10\]
+, where n is in `[0.5,1,2,10]`.
 
 
 ## License
