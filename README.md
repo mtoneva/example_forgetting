@@ -28,21 +28,20 @@ We present results on MNIST and CIFAR. Below we provide an overview of the suppl
 
 ```
 python run_mnist.py 
-    --dataset mnist/permuted_mnist 
+    --dataset [mnist/permuted_mnist]
     --no_dropout 
-    --output_dir mnist_results/permuted_mnist_results 
+    --output_dir [mnist/permuted_mnist]_results
     --seed s
 ```
-, where s ranges from to 1 to 5. The default setting was used for all other flags.
-Each training run saves a file that contains the presentation statistics (loss, accuracy, misclassification margin) from that run in the specified `--output_dir`. The names of the saved files contain the arguments (and argument values) that were used to generate them.
+, where s ranges from to 1 to 5. The default setting was used for all other flags. Use options `--dataset mnist` and `--output_dir mnist_results` to run on MNIST, and options `--dataset permuted_mnist` and `--output_dir permuted_mnist_results` for permuted MNIST. Each training run with a different seed saves a file that contains the presentation statistics (loss, accuracy, misclassification margin) from that run in the specified `--output_dir`. The names of the saved files contain the arguments (and argument values) that were used to generate them.
 
 ```
 python order_examples_by_forgetting.py 
-    --output_dir {mnist/permuted_mnist}_results 
-    --output_fname {mnist/permuted_mnist}_sorted_examples_by_forgetting 
-    --input_dir {mnist/permuted_mnist}_results 
+    --output_dir [mnist/permuted_mnist]_results 
+    --output_fname [mnist/permuted_mnist]_sorted_examples_by_forgetting 
+    --input_dir [mnist/permuted_mnist]_results 
     --input_fname_args 
-            dataset mnist/permuted_mnist 
+            dataset [mnist/permuted_mnist] 
             no_dropout True 
             sorting_file none 
             remove_n 0 
@@ -53,21 +52,21 @@ This finds all output files produced by `run_mnist.py` that are in `--input_dir`
 ##### CIFAR-10 and CIFAR-100:
 ```
 python run_cifar.py 
-    --dataset cifar10/cifar100 
+    --dataset [cifar10/cifar100] 
     --data_augmentation 
-    --output_dir cifar10_results/cifar100_results 
+    --output_dir [cifar10/cifar100]_results
     --seed s
 ```
 , where s ranges from to 1 to 5. The default setting was used for all other flags. This script has a similar functionality to `run_mnist.py`.
 
 ```
 python order_examples_by_forgetting.py 
-    --input_dir {cifar10/cifar100}_results 
-    --output_dir {cifar10/cifar100}_results 
-    --output_fname {cifar10/cifar100}_sorted_examples_by_forgetting 
-    --input_dir {cifar10/cifar100}_results 
+    --input_dir [cifar10/cifar100]_results 
+    --output_dir [cifar10/cifar100]_results 
+    --output_fname [cifar10/cifar100]_sorted_examples_by_forgetting 
+    --input_dir [cifar10/cifar100]_results 
     --input_fname_args 
-            dataset cifar10/cifar100 
+            dataset [cifar10/cifar100] 
             model resnet18 
             data_augmentation True 
             cutout False 
