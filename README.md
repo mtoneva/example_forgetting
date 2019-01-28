@@ -90,7 +90,7 @@ python order_examples_by_forgetting.py
 
 The removal experiments specify a number of examples to be completely removed from the sorted training set. We achieve this by providing three extra flags to `run_mnist.py` and `run_cifar.py`: `--sorting_file`, which is the name of the file output by `order_examples_by_forgetting.py` that specifies the sorting of the examples based on forgetting counts, `--remove_n`, which specifies the number of examples to remove, and `--keep_lowest_n`, which specifies where in the list of sorted training examples the removal should begin. We found that near state-of-the-art generalization performance can be maintained even when all unforgettable examples (i.e. examples with 0 forgetting events) are removed. 
 
-For Fig5 Left results:
+For Figure 5 Left results:
 ```
 python run_cifar.py 
     --dataset cifar10 
@@ -103,9 +103,9 @@ python run_cifar.py
     --remove_n r 
     --keep_lowest_n k
 ```
-, where s is in range(1,6), r is in range(0,50000,1000), and k is 0 (for selected) and -1 (for random).
+, where s is in `range(1,6)`, r is in `range(0,50000,1000)`, and k is 0 (for selected) and -1 (for random).
 
-For Fig5 Right results:
+For Figure 5 Right results:
 ```
 python run_cifar.py 
     --dataset cifar10 
@@ -118,12 +118,13 @@ python run_cifar.py
     --remove_n r 
     --keep_lowest_n k
 ```
-, where s is in range(1,6), r is 5000, and k is in range(0,50000,1000) (for selected) and -1 (for random).
+, where s is in `range(1,6)`, r is 5000, and k is in `range(0,50000,1000)` (for selected) and -1 (for random).
 
 Cutout implementation from [https://github.com/uoguelph-mlrg/Cutout] (https://github.com/uoguelph-mlrg/Cutout)
 
-For Fig6:
-CIFAR-10: same results as from Fig5 Left
+For Figure 6 results:
+
+CIFAR-10: same results as from Figure 5 Left
 MNIST/permuted MNIST: 
 ```
 python run_mnist.py 
@@ -135,8 +136,8 @@ python run_mnist.py
     --remove_n r 
     --keep_lowest_n k
 ```
-, where s is in range(1,6)
-r is in range(0,60000,1000)
+, where s is in `range(1,6)`
+r is in `range(0,60000,1000)`
 k is 0 (for selected) and -1 (for random)
 
 
