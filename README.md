@@ -1,6 +1,6 @@
 # An Empirical Study of Example Forgetting during Deep Neural Network Learning
 
-This repository contains code for the paper [An Empirical Study of Example Forgetting during Deep Neural Network Learning](https://arxiv.org/abs/1812.05159)
+This repository contains code for the paper [An Empirical Study of Example Forgetting during Deep Neural Network Learning](https://arxiv.org/abs/1812.05159).
 
 Bibtex: 
 ```
