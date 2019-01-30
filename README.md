@@ -38,7 +38,7 @@ python run_mnist.py
 ```
 python order_examples_by_forgetting.py 
     --output_dir [mnist/permuted_mnist]_results 
-    --output_fname [mnist/permuted_mnist]_sorted_examples_by_forgetting 
+    --output_name [mnist/permuted_mnist]_sorted_examples_by_forgetting 
     --input_dir [mnist/permuted_mnist]_results 
     --input_fname_args 
             dataset [mnist/permuted_mnist] 
@@ -61,9 +61,8 @@ python run_cifar.py
 
 ```
 python order_examples_by_forgetting.py 
-    --input_dir [cifar10/cifar100]_results 
     --output_dir [cifar10/cifar100]_results 
-    --output_fname [cifar10/cifar100]_sorted_examples_by_forgetting 
+    --output_name [cifar10/cifar100]_sorted_examples_by_forgetting 
     --input_dir [cifar10/cifar100]_results 
     --input_fname_args 
             dataset [cifar10/cifar100] 
