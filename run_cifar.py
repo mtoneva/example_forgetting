@@ -519,11 +519,11 @@ for epoch in range(args.epochs):
 
     # Save the stats dictionary
     fname = os.path.join(args.output_dir, save_fname)
-    with open(fname + "_stats_dict.pkl", "wb") as f:
+    with open(fname + "__stats_dict.pkl", "wb") as f:
         pickle.dump(example_stats, f)
 
     # Log the best train and test accuracy so far
-    with open(fname + "_best_acc.txt", "w") as f:
+    with open(fname + "__best_acc.txt", "w") as f:
         f.write('train test \n')
         f.write(str(max(example_stats['train'][1])))
         f.write(' ')
