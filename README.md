@@ -38,7 +38,7 @@ python run_mnist.py
 ```
 python order_examples_by_forgetting.py 
     --output_dir [mnist/permuted_mnist]_results 
-    --output_name [mnist/permuted_mnist]_sorted_examples_by_forgetting 
+    --output_name [mnist/permuted_mnist]_sorted 
     --input_dir [mnist/permuted_mnist]_results 
     --input_fname_args 
             dataset [mnist/permuted_mnist] 
@@ -62,11 +62,10 @@ python run_cifar.py
 ```
 python order_examples_by_forgetting.py 
     --output_dir [cifar10/cifar100]_results 
-    --output_name [cifar10/cifar100]_sorted_examples_by_forgetting 
+    --output_name [cifar10/cifar100]_sorted 
     --input_dir [cifar10/cifar100]_results 
     --input_fname_args 
-            dataset [cifar10/cifar100] 
-            model resnet18 
+            dataset [cifar10/cifar100]
             data_augmentation True 
             cutout False 
             sorting_file none 
@@ -95,7 +94,7 @@ python run_cifar.py
     --dataset cifar10 
     --data_augmentation 
     --cutout 
-    --sorting_file cifar10_sorted_examples_by_forgetting 
+    --sorting_file cifar10_sorted 
     --input_dir cifar10_results 
     --output_dir cifar10_results 
     --seed s 
@@ -110,7 +109,7 @@ python run_cifar.py
     --dataset cifar10 
     --data_augmentation 
     --cutout 
-    --sorting_file cifar10_sorted_examples_by_forgetting 
+    --sorting_file cifar10_sorted 
     --input_dir cifar10_results 
     --output_dir cifar10_results 
     --seed s 
@@ -125,7 +124,7 @@ For Figure 6 results:
 ```
 python run_mnist.py 
     --dataset mnist/permuted_mnist 
-    --sorting_file {mnist/permuted_mnist}_sorted_examples_by_forgetting 
+    --sorting_file {mnist/permuted_mnist}_sorted 
     --input_dir mnist_results/permuted_mnist_results 
     --output_dir mnist_results/permuted_mnist_results  
     --seed s 
