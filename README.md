@@ -118,7 +118,7 @@ python run_cifar.py
 ```
 , where s is in `range(1,6)`, r is 5000, and k is in `range(0,50000,1000)` (for selected) and -1 (for random).
 
-Cutout implementation from [https://github.com/uoguelph-mlrg/Cutout] (https://github.com/uoguelph-mlrg/Cutout)
+Cutout implementation from [Cutout repository](https://github.com/uoguelph-mlrg/Cutout).
 
 For Figure 6 results:
 ```
