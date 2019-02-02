@@ -123,10 +123,10 @@ Cutout implementation from [Cutout repository](https://github.com/uoguelph-mlrg/
 For Figure 6 results:
 ```
 python run_mnist.py 
-    --dataset mnist/permuted_mnist 
-    --sorting_file {mnist/permuted_mnist}_sorted 
-    --input_dir mnist_results/permuted_mnist_results 
-    --output_dir mnist_results/permuted_mnist_results  
+    --dataset [mnist/permuted_mnist] 
+    --sorting_file [mnist/permuted_mnist]_sorted 
+    --input_dir [mnist/permuted_mnist]_results 
+    --output_dir [mnist/permuted_mnist]_results  
     --seed s 
     --remove_n r 
     --keep_lowest_n k
