@@ -14,6 +14,13 @@ import pickle
 # Returns 4 dictionaries with statistics per example
 #
 def compute_forgetting_statistics(diag_stats, npresentations):
+    """
+    Compute statistics for each vertex.
+
+    Args:
+        diag_stats: (dict): write your description
+        npresentations: (todo): write your description
+    """
 
     presentations_needed_to_learn = {}
     unlearned_per_presentation = {}
@@ -71,6 +78,14 @@ def compute_forgetting_statistics(diag_stats, npresentations):
 #
 def sort_examples_by_forgetting(unlearned_per_presentation_all,
                                 first_learned_all, npresentations):
+    """
+    Sort examples by examples by examples by examples.
+
+    Args:
+        unlearned_per_presentation_all: (todo): write your description
+        first_learned_all: (todo): write your description
+        npresentations: (str): write your description
+    """
 
     # Initialize lists
     example_original_order = []
@@ -108,6 +123,13 @@ def sort_examples_by_forgetting(unlearned_per_presentation_all,
 # Returns 1 if filename matches the filter specified by the argument list, 0 otherwise
 #
 def check_filename(fname, args_list):
+    """
+    Check if fname is a file.
+
+    Args:
+        fname: (str): write your description
+        args_list: (list): write your description
+    """
 
     # If no arguments are specified to filter by, pass filename
     if args_list is None:

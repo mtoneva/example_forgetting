@@ -26,6 +26,12 @@ from Cutout.model.wide_resnet import WideResNet
 
 # Format time for printing purposes
 def get_hms(seconds):
+    """
+    Convert seconds to seconds.
+
+    Args:
+        seconds: (todo): write your description
+    """
     m, s = divmod(seconds, 60)
     h, m = divmod(m, 60)
 
@@ -34,6 +40,14 @@ def get_hms(seconds):
 
 # Introduce Gaussian noise to noise_percentage of image pixels
 def noisy(image, noise_percentage, noise_std):
+    """
+    Noisy noise.
+
+    Args:
+        image: (array): write your description
+        noise_percentage: (todo): write your description
+        noise_std: (todo): write your description
+    """
     row, col, ch = image.shape
     num_corrupt = int(np.floor(noise_percentage * row * col / 100))
 
@@ -61,6 +75,17 @@ def noisy(image, noise_percentage, noise_std):
 #
 def train(args, model, device, trainset, model_optimizer, epoch,
           example_stats):
+    """
+    Training function.
+
+    Args:
+        model: (todo): write your description
+        device: (todo): write your description
+        trainset: (todo): write your description
+        model_optimizer: (todo): write your description
+        epoch: (int): write your description
+        example_stats: (dict): write your description
+    """
     train_loss = 0.
     correct = 0.
     total = 0.
@@ -152,6 +177,15 @@ def train(args, model, device, trainset, model_optimizer, epoch,
 # example_stats: dictionary containing statistics accumulated over every presentation of example
 #
 def test(epoch, model, device, example_stats):
+    """
+    Perform a single test.
+
+    Args:
+        epoch: (int): write your description
+        model: (todo): write your description
+        device: (int): write your description
+        example_stats: (dict): write your description
+    """
     global best_acc
     test_loss = 0.
     correct = 0.

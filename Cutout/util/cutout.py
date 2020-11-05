@@ -10,6 +10,14 @@ class Cutout(object):
         length (int): The length (in pixels) of each square patch.
     """
     def __init__(self, n_holes, length):
+        """
+        Initialize the internal buffer.
+
+        Args:
+            self: (todo): write your description
+            n_holes: (int): write your description
+            length: (int): write your description
+        """
         self.n_holes = n_holes
         self.length = length
 

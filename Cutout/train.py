@@ -166,6 +166,12 @@ csv_logger = CSVLogger(args=args, fieldnames=['epoch', 'train_acc', 'test_acc'],
 
 
 def test(loader):
+    """
+    Compute the model
+
+    Args:
+        loader: (todo): write your description
+    """
     cnn.eval()    # Change model to 'eval' mode (BN uses moving mean/var).
     correct = 0.
     total = 0.

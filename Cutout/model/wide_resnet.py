@@ -8,6 +8,16 @@ import torch.nn.functional as F
 
 class BasicBlock(nn.Module):
     def __init__(self, in_planes, out_planes, stride, dropRate=0.0):
+        """
+        Initialize the network.
+
+        Args:
+            self: (todo): write your description
+            in_planes: (int): write your description
+            out_planes: (int): write your description
+            stride: (int): write your description
+            dropRate: (todo): write your description
+        """
         super(BasicBlock, self).__init__()
         self.bn1 = nn.BatchNorm2d(in_planes)
         self.relu1 = nn.ReLU(inplace=True)
@@ -22,6 +32,13 @@ class BasicBlock(nn.Module):
         self.convShortcut = (not self.equalInOut) and nn.Conv2d(in_planes, out_planes, kernel_size=1, stride=stride,
                                padding=0, bias=False) or None
     def forward(self, x):
+        """
+        Forward computation.
+
+        Args:
+            self: (todo): write your description
+            x: (todo): write your description
+        """
         if not self.equalInOut:
             x = self.relu1(self.bn1(x))
         else:
@@ -34,18 +51,59 @@ class BasicBlock(nn.Module):
 
 class NetworkBlock(nn.Module):
     def __init__(self, nb_layers, in_planes, out_planes, block, stride, dropRate=0.0):
+        """
+        Initialize the network.
+
+        Args:
+            self: (todo): write your description
+            nb_layers: (list): write your description
+            in_planes: (int): write your description
+            out_planes: (int): write your description
+            block: (todo): write your description
+            stride: (int): write your description
+            dropRate: (todo): write your description
+        """
         super(NetworkBlock, self).__init__()
         self.layer = self._make_layer(block, in_planes, out_planes, nb_layers, stride, dropRate)
     def _make_layer(self, block, in_planes, out_planes, nb_layers, stride, dropRate):
+        """
+        Make a layer.
+
+        Args:
+            self: (todo): write your description
+            block: (todo): write your description
+            in_planes: (int): write your description
+            out_planes: (todo): write your description
+            nb_layers: (todo): write your description
+            stride: (int): write your description
+            dropRate: (todo): write your description
+        """
         layers = []
         for i in range(nb_layers):
             layers.append(block(i == 0 and in_planes or out_planes, out_planes, i == 0 and stride or 1, dropRate))
         return nn.Sequential(*layers)
     def forward(self, x):
+        """
+        Return the layer.
+
+        Args:
+            self: (todo): write your description
+            x: (todo): write your description
+        """
         return self.layer(x)
 
 class WideResNet(nn.Module):
     def __init__(self, depth, num_classes, widen_factor=1, dropRate=0.0):
+        """
+        Initialize the network.
+
+        Args:
+            self: (todo): write your description
+            depth: (float): write your description
+            num_classes: (int): write your description
+            widen_factor: (float): write your description
+            dropRate: (todo): write your description
+        """
         super(WideResNet, self).__init__()
         nChannels = [16, 16*widen_factor, 32*widen_factor, 64*widen_factor]
         assert((depth - 4) % 6 == 0)
@@ -76,6 +134,13 @@ class WideResNet(nn.Module):
             elif isinstance(m, nn.Linear):
                 m.bias.data.zero_()
     def forward(self, x):
+        """
+        Perform forward computation.
+
+        Args:
+            self: (todo): write your description
+            x: (todo): write your description
+        """
         out = self.conv1(x)
         out = self.block1(out)
         out = self.block2(out)

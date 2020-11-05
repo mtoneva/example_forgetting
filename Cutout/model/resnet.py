@@ -7,6 +7,14 @@ from torch.autograd import Variable
 
 
 def conv3x3(in_planes, out_planes, stride=1):
+    """
+    Conv3x3x3 layer.
+
+    Args:
+        in_planes: (int): write your description
+        out_planes: (str): write your description
+        stride: (int): write your description
+    """
     return nn.Conv2d(in_planes, out_planes, kernel_size=3, stride=stride, padding=1, bias=False)
 
 
@@ -14,6 +22,15 @@ class BasicBlock(nn.Module):
     expansion = 1
 
     def __init__(self, in_planes, planes, stride=1):
+        """
+        Initialize a convolution.
+
+        Args:
+            self: (todo): write your description
+            in_planes: (int): write your description
+            planes: (todo): write your description
+            stride: (int): write your description
+        """
         super(BasicBlock, self).__init__()
         self.conv1 = conv3x3(in_planes, planes, stride)
         self.bn1 = nn.BatchNorm2d(planes)
@@ -28,6 +45,13 @@ class BasicBlock(nn.Module):
             )
 
     def forward(self, x):
+        """
+        Perform computation.
+
+        Args:
+            self: (todo): write your description
+            x: (todo): write your description
+        """
         out = F.relu(self.bn1(self.conv1(x)))
         out = self.bn2(self.conv2(out))
         out += self.shortcut(x)
@@ -39,6 +63,15 @@ class Bottleneck(nn.Module):
     expansion = 4
 
     def __init__(self, in_planes, planes, stride=1):
+        """
+        Initialize the network.
+
+        Args:
+            self: (todo): write your description
+            in_planes: (int): write your description
+            planes: (todo): write your description
+            stride: (int): write your description
+        """
         super(Bottleneck, self).__init__()
         self.conv1 = nn.Conv2d(in_planes, planes, kernel_size=1, bias=False)
         self.bn1 = nn.BatchNorm2d(planes)
@@ -55,6 +88,13 @@ class Bottleneck(nn.Module):
             )
 
     def forward(self, x):
+        """
+        Implement forward computation.
+
+        Args:
+            self: (todo): write your description
+            x: (todo): write your description
+        """
         out = F.relu(self.bn1(self.conv1(x)))
         out = F.relu(self.bn2(self.conv2(out)))
         out = self.bn3(self.conv3(out))
@@ -65,6 +105,15 @@ class Bottleneck(nn.Module):
 
 class ResNet(nn.Module):
     def __init__(self, block, num_blocks, num_classes=10):
+        """
+        Initialize layer
+
+        Args:
+            self: (todo): write your description
+            block: (todo): write your description
+            num_blocks: (int): write your description
+            num_classes: (int): write your description
+        """
         super(ResNet, self).__init__()
         self.in_planes = 64
 
@@ -77,6 +126,16 @@ class ResNet(nn.Module):
         self.linear = nn.Linear(512*block.expansion, num_classes)
 
     def _make_layer(self, block, planes, num_blocks, stride):
+        """
+        Make a layer.
+
+        Args:
+            self: (todo): write your description
+            block: (todo): write your description
+            planes: (todo): write your description
+            num_blocks: (int): write your description
+            stride: (int): write your description
+        """
         strides = [stride] + [1]*(num_blocks-1)
         layers = []
         for stride in strides:
@@ -85,6 +144,13 @@ class ResNet(nn.Module):
         return nn.Sequential(*layers)
 
     def forward(self, x):
+        """
+        Forward computation.
+
+        Args:
+            self: (todo): write your description
+            x: (todo): write your description
+        """
         out = F.relu(self.bn1(self.conv1(x)))
         out = self.layer1(out)
         out = self.layer2(out)
@@ -97,21 +163,56 @@ class ResNet(nn.Module):
 
 
 def ResNet18(num_classes=10):
+    """
+    Creates a resNet class.
+
+    Args:
+        num_classes: (int): write your description
+    """
     return ResNet(BasicBlock, [2,2,2,2], num_classes)
 
 def ResNet34(num_classes=10):
+    """
+    Creates a resNet dataset
+
+    Args:
+        num_classes: (int): write your description
+    """
     return ResNet(BasicBlock, [3,4,6,3], num_classes)
 
 def ResNet50(num_classes=10):
+    """
+    Return a resNet number.
+
+    Args:
+        num_classes: (int): write your description
+    """
     return ResNet(Bottleneck, [3,4,6,3], num_classes)
 
 def ResNet101(num_classes=10):
+    """
+    Creates a resNet class.
+
+    Args:
+        num_classes: (int): write your description
+    """
     return ResNet(Bottleneck, [3,4,23,3], num_classes)
 
 def ResNet152(num_classes=10):
+    """
+    Creates a resNet class.
+
+    Args:
+        num_classes: (int): write your description
+    """
     return ResNet(Bottleneck, [3,8,36,3], num_classes)
 
 def test_resnet():
+    """
+    Resnet resnet
+
+    Args:
+    """
     net = ResNet50()
     y = net(Variable(torch.randn(1,3,32,32)))
     print(y.size())
