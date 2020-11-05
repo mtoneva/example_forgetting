@@ -17,6 +17,12 @@ from torchvision import datasets, transforms
 
 # Format time for printing purposes
 def get_hms(seconds):
+    """
+    Convert seconds to seconds.
+
+    Args:
+        seconds: (todo): write your description
+    """
     m, s = divmod(seconds, 60)
     h, m = divmod(m, 60)
 
@@ -26,6 +32,12 @@ def get_hms(seconds):
 # Setup basic CNN model
 class Net(nn.Module):
     def __init__(self):
+        """
+        Initialize the network.
+
+        Args:
+            self: (todo): write your description
+        """
         super(Net, self).__init__()
         self.conv1 = nn.Conv2d(1, 10, kernel_size=5)
         self.conv2 = nn.Conv2d(10, 20, kernel_size=5)
@@ -34,6 +46,13 @@ class Net(nn.Module):
         self.fc2 = nn.Linear(50, 10)
 
     def forward(self, x):
+        """
+        Forward computation. forward.
+
+        Args:
+            self: (todo): write your description
+            x: (todo): write your description
+        """
         x = F.relu(F.max_pool2d(self.conv1(x), 2))
 
         if args.no_dropout:
@@ -56,6 +75,17 @@ class Net(nn.Module):
 # example_stats: dictionary containing statistics accumulated over every presentation of example
 #
 def train(args, model, device, trainset, optimizer, epoch, example_stats):
+    """
+    Training function.
+
+    Args:
+        model: (todo): write your description
+        device: (todo): write your description
+        trainset: (todo): write your description
+        optimizer: (todo): write your description
+        epoch: (int): write your description
+        example_stats: (dict): write your description
+    """
     train_loss = 0
     correct = 0
     total = 0
@@ -146,6 +176,15 @@ def train(args, model, device, trainset, optimizer, epoch, example_stats):
 # example_stats: dictionary containing statistics accumulated over every presentation of example
 #
 def test(args, model, device, testset, example_stats):
+    """
+    Perform the model.
+
+    Args:
+        model: (todo): write your description
+        device: (int): write your description
+        testset: (dict): write your description
+        example_stats: (dict): write your description
+    """
     test_loss = 0
     correct = 0
     total = 0
